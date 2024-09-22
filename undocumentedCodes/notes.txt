@@ -1,0 +1,42 @@
+#example of creating a school
+my_school = School()
+print(my_school.students)
+print(my_school.instructors)
+print(my_school.courses)
+
+my_school.add_course_to_school("EECE 435L", "Software Tools")
+my_school.add_course_to_school("EECE 503K", "Game development")
+
+new_professor = my_school.add_instructor_to_school('2039403', "Jeff Smith", 35, 'jeff.smith@gmail.com')
+new_professor.assign_course(my_school.courses[1])
+
+new_professor2 = my_school.add_instructor_to_school('2678532', "Maria Wayne", 27, 'mar.wayne@outlook.com')
+new_professor2.assign_course(my_school.courses[0])
+
+new_student = my_school.add_student_to_school('202201893', "Dany Solh", 21, "das35@mail.aub.edu")
+new_student.register_course(my_school.courses[0])
+new_student.register_course(my_school.courses[1])
+
+print(new_student.name, new_student.student_id)
+print(new_student.registered_courses[0].course_name, new_student.registered_courses[0].instructor.name)
+print(new_student.registered_courses[1].course_name, new_student.registered_courses[1].instructor.name)
+print("-----------------------------------")
+print(new_professor.name, new_professor.assigned_courses[0].course_name)
+print(new_professor2.name, new_professor.assigned_courses[0].course_id)
+
+my_school.save_to_json()
+
+#example of accessing school data
+my_school = School('output_file.json')
+
+for x in my_school.students:
+    print(x.name, x.registered_courses[0].course_id, x.registered_courses[0].course_name)
+    print('----------------------------')
+
+for y in my_school.instructors:
+    print(y.name, y.assigned_courses[0].course_name)
+    print('----------------------------')
+
+for z in my_school.courses:
+    print(z.course_name)
+    print('----------------------------')

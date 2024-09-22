@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tkinter_app_sql module &#8212; Lab3 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="classes module" href="classes.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-tkinter_app_sql">
+<span id="tkinter-app-sql-module"></span><h1>tkinter_app_sql module<a class="headerlink" href="#module-tkinter_app_sql" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.add_something">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">add_something</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">something</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#add_something"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.add_something" title="Link to this definition">¶</a></dt>
+<dd><p>function responsible of adding a student, instructor, or course to the database. The data iss directly extracted from the fields on the window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>something</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>something</strong> – record type we want to add (student, instructor, or course)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.assign">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.assign" title="Link to this definition">¶</a></dt>
+<dd><p>this function is responsible of assigning an instructor to a course by updating the instructor field in the courses table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instructor_id</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>instructor_id</strong> – id of the instructor to assign the course to</p></li>
+<li><p><strong>course</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>course</strong> – id of the course we want to assign teh instructor to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.changeFilters">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">changeFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#changeFilters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.changeFilters" title="Link to this definition">¶</a></dt>
+<dd><p>This function will simply modify the options in the attributesBox drop down list when changing the type of record we are searching in as each category has different filters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.changeLabel">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">changeLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#changeLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.changeLabel" title="Link to this definition">¶</a></dt>
+<dd><p>This function will simply modify the label when changing the type of record we want to edit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.changeLabel2">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">changeLabel2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#changeLabel2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.changeLabel2" title="Link to this definition">¶</a></dt>
+<dd><p>This function will simply modify the label when changing the type of record we want to delete</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.deleteRecord">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">deleteRecord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#deleteRecord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.deleteRecord" title="Link to this definition">¶</a></dt>
+<dd><p>This function iss responsible of deleting a record from the database. It first checks that the targeted record
+exists and verify that the user wants to proceed with the operation. It will alert the user in case the record doesn’t exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>id</strong> – the identifier of the target record (student, instructor or course id)</p></li>
+<li><p><strong>category</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>category</strong> – specifies if we want to delete a student, instructor, or course record</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return:none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.editAndSave">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">editAndSave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#editAndSave"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.editAndSave" title="Link to this definition">¶</a></dt>
+<dd><p>This function is responsible to update the record’s data. It will first validate that all the data is in a valid format before ssubmitting the update to the database.
+The function takes no parameter, the data is directly extracted from the fields present on the window and the record to update is recognized through the object_to_modify tuple
+which indicates the type of record to modify (i.e. what table(s) to perform the update on) and the id of the record.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.fillTreeview">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">fillTreeview</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#fillTreeview"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.fillTreeview" title="Link to this definition">¶</a></dt>
+<dd><p>this function is used to build the tree view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.lookFor">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">lookFor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#lookFor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.lookFor" title="Link to this definition">¶</a></dt>
+<dd><p>This function is responsible to search for the record we would like to modify and display its information on the window. The user will be informed in case the record is not found.</p>
+<dl class="simple">
+<dt>Argss:</dt><dd><p>type id: str
+id: identifier of the record to edit
+type category: str
+category: record type to edit (student, instructor, course)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.on_frame_configure">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">on_frame_configure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#on_frame_configure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.on_frame_configure" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.register">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.register" title="Link to this definition">¶</a></dt>
+<dd><p>this function is responsible of registering a student to a course by adding a row to the registered_courses table consisting of the student id and the course id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>student_id</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>student_id</strong> – id of the student</p></li>
+<li><p><strong>course</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>course</strong> – id of the course</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.removeFromList">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">removeFromList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">courseID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#removeFromList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.removeFromList" title="Link to this definition">¶</a></dt>
+<dd><p>This function is used to update the list of courses the student wants to drop and the list of courses he/she wants to keep</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>courseID</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>courseID</strong> – id of the course the student wants to drop</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkinter_app_sql.search">
+<span class="sig-prename descclassname"><span class="pre">tkinter_app_sql.</span></span><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyword</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkinter_app_sql.html#search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkinter_app_sql.search" title="Link to this definition">¶</a></dt>
+<dd><p>Function responsible to search for the records that matches the passed keyword according to the attribute and category selected. Records displayed in a tabular format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>category</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>category</strong> – the type of record we are looking for (student, instructor, or course)</p></li>
+<li><p><strong>attribute</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>attribute</strong> – the filter used for searching, different options for each category</p></li>
+<li><p><strong>keyword</strong> (<em>type</em>) – str</p></li>
+<li><p><strong>keyword</strong> – keyword to be looked for in the specified table. We search for the records where the field contains the keyword but is not necessarilly equal to it</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return: none</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Lab3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">documentedCodes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DDL_sql.html">DDL_sql module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classes.html">classes module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tkinter_app_sql module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">documentedCodes</a><ul>
+      <li>Previous: <a href="classes.html" title="previous chapter">classes module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Dany Solh.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/tkinter_app_sql.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

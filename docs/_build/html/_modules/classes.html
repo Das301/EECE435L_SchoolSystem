@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>classes &#8212; Lab3 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for classes</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+
+<div class="viewcode-block" id="Person">
+<a class="viewcode-back" href="../classes.html#classes.Person">[docs]</a>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a simple class representing a person. It is used as a super class for the Student and Instructor classes.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        type name: str</span>
+<span class="sd">        name: name of the person</span>
+<span class="sd">        type age: int, must be positive</span>
+<span class="sd">        age: age of the person</span>
+<span class="sd">        type email: str, must contain @ character</span>
+<span class="sd">        email: email address of the person</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the person object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="n">age</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="ow">and</span> <span class="s1">&#39;@&#39;</span> <span class="ow">in</span> <span class="n">email</span><span class="p">,</span> <span class="s2">&quot;Invalid inputs&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>
+    
+<div class="viewcode-block" id="Person.introduce">
+<a class="viewcode-back" href="../classes.html#classes.Person.introduce">[docs]</a>
+    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string in which the person tells her name and age</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Student">
+<a class="viewcode-back" href="../classes.html#classes.Student">[docs]</a>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This a class used to represent a student. It inherits the basic attributes and methods of a student from the :class:`Person`</span>
+<span class="sd">    Args:</span>
+<span class="sd">        type id: str </span>
+<span class="sd">        id: id of the student</span>
+<span class="sd">        type name: str</span>
+<span class="sd">        name: name of the student</span>
+<span class="sd">        type age: int, must be positive</span>
+<span class="sd">        age: age of the student</span>
+<span class="sd">        type email: str, must contain @ character</span>
+<span class="sd">        email: email address of the student</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the student class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="n">age</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="ow">and</span> <span class="s1">&#39;@&#39;</span> <span class="ow">in</span> <span class="n">email</span><span class="p">,</span> <span class="s2">&quot;Invalid inputs&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">student_id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registered_courses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="Student.register_course">
+<a class="viewcode-back" href="../classes.html#classes.Student.register_course">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method used to register a student in a course</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            type course: :class:`Course`</span>
+<span class="sd">            course: course to which the student want to register</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">course</span><span class="p">)</span> <span class="o">==</span> <span class="n">Course</span><span class="p">,</span> <span class="s1">&#39;Invalid class. Must be a Course class.&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registered_courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span>
+        <span class="n">course</span><span class="o">.</span><span class="n">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Instructor">
+<a class="viewcode-back" href="../classes.html#classes.Instructor">[docs]</a>
+<span class="k">class</span> <span class="nc">Instructor</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This a class used to represent a instructor. It inherits the basic attributes and methods of a instructor from the :class:`Person`</span>
+<span class="sd">    Args:</span>
+<span class="sd">        type id: str </span>
+<span class="sd">        id: id of the instructor</span>
+<span class="sd">        type name: str</span>
+<span class="sd">        name: name of the instructor</span>
+<span class="sd">        type age: int, must be positive</span>
+<span class="sd">        age: age of the instructor</span>
+<span class="sd">        type email: str, must contain @ character</span>
+<span class="sd">        email: email address of the instructor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the instructor class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="n">age</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span> <span class="ow">and</span> <span class="s1">&#39;@&#39;</span> <span class="ow">in</span> <span class="n">email</span><span class="p">,</span> <span class="s2">&quot;Invalid inputs&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructor_id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assigned_courses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="Instructor.assign_course">
+<a class="viewcode-back" href="../classes.html#classes.Instructor.assign_course">[docs]</a>
+    <span class="k">def</span> <span class="nf">assign_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method used to assign the instructor to a course</span>
+<span class="sd">        Args:</span>
+<span class="sd">            type course: :class:`Course`</span>
+<span class="sd">            course: course to which the instructor is assigned to</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">course</span><span class="p">)</span> <span class="o">==</span> <span class="n">Course</span><span class="p">,</span> <span class="s1">&#39;Invalid class. Must be a Course class.&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assigned_courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span>
+        <span class="n">course</span><span class="o">.</span><span class="n">instructor</span> <span class="o">=</span> <span class="bp">self</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Course">
+<a class="viewcode-back" href="../classes.html#classes.Course">[docs]</a>
+<span class="k">class</span> <span class="nc">Course</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a class used to represent a course.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        type id: str</span>
+<span class="sd">        id: id of the course</span>
+<span class="sd">        type name: str</span>
+<span class="sd">        name: name of the course</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">==</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;All parameters must be of string type&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enrolled_student</span> <span class="o">=</span> <span class="p">[]</span>
+    
+<div class="viewcode-block" id="Course.add_student">
+<a class="viewcode-back" href="../classes.html#classes.Course.add_student">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        function used to add a student to the list of enrolled student</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            type student: `:class:Student`</span>
+<span class="sd">            student: student that wants to get enrolled in the course</span>
+
+<span class="sd">        Returns:   </span>
+<span class="sd">            :return: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">student</span><span class="p">)</span> <span class="o">==</span> <span class="n">Student</span><span class="p">,</span> <span class="s2">&quot;Invalid class. Must be a Student class.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enrolled_student</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span></div>
+</div>
+
+
+<span class="c1"># Step 2</span>
+<div class="viewcode-block" id="School">
+<a class="viewcode-back" href="../classes.html#classes.School">[docs]</a>
+<span class="k">class</span> <span class="nc">School</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a complex class used to represent an entire school. It makes use of the simple classes `:class:Student`, `:class:Instructor`, `:class:Course`</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        type json_file: str, defaults to empty string</span>
+<span class="sd">        json_file: the location of the json file to load the data from into the class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">json_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        constructor method for the School class. Takes the data from the json file (if selected) and loads it into distinct lists for Students, Instructors, and Courses</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">json_file</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">json_file</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.json&quot;</span><span class="p">:</span>
+            <span class="n">json_file</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong file extension entered. Will save data to another file&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">courses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="o">=</span> <span class="n">json_file</span>
+        <span class="k">if</span> <span class="n">json_file</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_file</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">open_file</span><span class="p">)</span>
+            
+
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;instructors&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Instructor</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]))</span>
+            
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;courses&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Course</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
+                <span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="s1">&#39;instructor_id&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">instructor_id</span> <span class="o">==</span> <span class="n">y</span><span class="p">[</span><span class="s1">&#39;instructor_id&#39;</span><span class="p">]:</span>
+                            <span class="n">i</span><span class="o">.</span><span class="n">assign_course</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                            <span class="k">break</span>
+            
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;students&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]))</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;courses&#39;</span><span class="p">]:</span>
+                    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="o">.</span><span class="n">course_id</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">register_course</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                            <span class="k">break</span>
+    
+<div class="viewcode-block" id="School.save_to_json">
+<a class="viewcode-back" href="../classes.html#classes.School.save_to_json">[docs]</a>
+    <span class="k">def</span> <span class="nf">save_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Saves any modified data into the json file. If json file specified at the start, data will be saved into it, otherwise, data will be saved in output_file.json file.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :return: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;students&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">student_id</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">_email</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;courses&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">course_id</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">registered_courses</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;students&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;instructors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">instructor_id</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">age</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">_email</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;instructors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;courses&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">course_id</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">course_name</span>
+            <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">instructor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;instructor_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">instructor</span><span class="o">.</span><span class="n">instructor_id</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;instructor_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;courses&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fileName</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fileName</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output_file.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;operation successful&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="School.add_student_to_school">
+<a class="viewcode-back" href="../classes.html#classes.School.add_student_to_school">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_student_to_school</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a student to the school system. Performs necessary checks on the inputs. Creates a `:class:Student` object to store the data in it then places it in the students list</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            type id: str</span>
+<span class="sd">            id: id of the student</span>
+<span class="sd">            type name: str</span>
+<span class="sd">            name: name of the student</span>
+<span class="sd">            type age: int, must be positive</span>
+<span class="sd">            age: age of the student</span>
+<span class="sd">            type email: str, must contain @ character</span>
+<span class="sd">            email: email address of the student</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :return: the created student</span>
+<span class="sd">            :rtype: `:class:Student`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">email</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="s1">&#39;@&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Invalid or missing fields!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;Entered age is not a number&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;Age is not an integer&quot;</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">student_id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">:</span>
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Student with ID &quot;</span> <span class="o">+</span> <span class="nb">id</span> <span class="o">+</span> <span class="s2">&quot; already exists!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">student_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+    
+<div class="viewcode-block" id="School.add_instructor_to_school">
+<a class="viewcode-back" href="../classes.html#classes.School.add_instructor_to_school">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_instructor_to_school</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds an instructor to the school system. Performs necessary checks on the inputs. Creates a `:class:Instructor` object to store the data in it then places it in the instructors list</span>
+<span class="sd">        Args:</span>
+<span class="sd">            type id: str</span>
+<span class="sd">            id: id of the instructor</span>
+<span class="sd">            type name: str </span>
+<span class="sd">            name: name of the instructor</span>
+<span class="sd">            type age: int, must be positive</span>
+<span class="sd">            age: age of the instructor</span>
+<span class="sd">            type email: str, must contain @ character</span>
+<span class="sd">            email: email address of the instructor</span>
+
+<span class="sd">        Returns:   </span>
+<span class="sd">            :return: the created instructor</span>
+<span class="sd">            :rtype: `:class:Instructor`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">email</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="s1">&#39;@&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Invalid or missing fields!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Entered age is not a number&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;Age is not an integer&quot;</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">instructor_id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">:</span>
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Instructor with ID &quot;</span> <span class="o">+</span> <span class="nb">id</span> <span class="o">+</span> <span class="s2">&quot; already exists!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Instructor</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">instructor_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+    
+<div class="viewcode-block" id="School.add_course_to_school">
+<a class="viewcode-back" href="../classes.html#classes.School.add_course_to_school">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_course_to_school</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a course to the school system. Performs necessary checks on the inputs. Creates a `:class:Course` object to store the data in it then places it in the courses list</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            type id: str </span>
+<span class="sd">            id: id of the course</span>
+<span class="sd">            type name: str</span>
+<span class="sd">            name: name of the course</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            :return: the created course</span>
+<span class="sd">            :rtype: `:class:Course`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Missing field&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;Missing field&quot;</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">course_id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">:</span>
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;Course with ID &quot;</span> <span class="o">+</span> <span class="nb">id</span> <span class="o">+</span> <span class="s2">&quot; already exists!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Course</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">course_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">course_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+</div>
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Lab3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">documentedCodes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Dany Solh.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
